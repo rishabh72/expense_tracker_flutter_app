@@ -67,10 +67,15 @@ class MyHomePage extends StatelessWidget {
                         ),
                         child: Text(
                           tx.amount.toString(),
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                            color: Colors.purple,
+                          ),
                         ),
                         decoration: BoxDecoration(
                           border: Border.all(
-                            color: Colors.blueGrey,
+                            color: Colors.purple,
                             width: 2,
                           ),
                         ),
@@ -78,10 +83,20 @@ class MyHomePage extends StatelessWidget {
                       ),
 
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(tx.title),
+                          Text(
+                            tx.title,
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                           Text(
                             tx.date.toString(),
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
                           ),
                         ],
                       )
