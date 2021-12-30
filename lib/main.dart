@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-// Working with Column, Container, Card Widgets
-// Column width =  longest width of children widget
-// Card width = parent width otherwise child width
+// Column Alignment
+// Column takes all available vertical space on the screen
+// we can align child items inside Column widget with "mainAxisAlignment" and "crossAxisAlignment" property
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -23,16 +24,20 @@ class MyHomePage extends StatelessWidget {
         title: Text('Flutter App'),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             width: double.infinity,
             child: Card(
               child: Text('Chart'),
               elevation: 5,
+              color: Colors.green,
             ),
           ),
           Card(
             child: Text('List of Transactions'),
+            color: Colors.pink,
           )
         ],
       ),
