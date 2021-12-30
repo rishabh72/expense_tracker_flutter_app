@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'transaction.dart';
 
-// Column Alignment
-// Column takes all available vertical space on the screen
-// we can align child items inside Column widget with "mainAxisAlignment" and "crossAxisAlignment" property
+// We have list of transactions [{id: 't1', title: "Bag", amount: 12, date: ""}]
+// We can create new class Transaction and define type like below
+// final List<Transaction> = [Transaction({id: "1",title: "Bag",amount: 12, date: DateTime.now()})]
 
 void main() => runApp(MyApp());
 
@@ -17,15 +18,19 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  final List<Transaction> transactions = [
+    Transaction(
+        id: 't1', title: 'New Shoes', amount: 34.5, date: DateTime.now())
+  ];
+
   @override
   Widget build(BuildContext context) {
+    print(transactions[0].date);
     return Scaffold(
       appBar: AppBar(
         title: Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
             width: double.infinity,
