@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-// @required is provided by material.dart
 class Transaction {
   final String id;
   final String title;
