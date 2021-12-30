@@ -58,9 +58,25 @@ class MyHomePage extends StatelessWidget {
                 return Card(
                   child: Row(
                     children: [
+                      // Container Styling
+                      // Container has decoration property. With that we can add border.
                       Container(
-                        child: Text(tx.amount.toString()),
+                        margin: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 20,
+                        ),
+                        child: Text(
+                          tx.amount.toString(),
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.blueGrey,
+                            width: 2,
+                          ),
+                        ),
+                        padding: EdgeInsets.all(10),
                       ),
+
                       Column(
                         children: [
                           Text(tx.title),
