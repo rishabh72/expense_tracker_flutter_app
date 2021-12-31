@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'widgets/user_transactions.dart';
 
-// We have split code into multiple widgets UserTransactions, NewTransaction, TransactionList
-// We have created UserTransactions widget for managing state
-// because we dont want to convert MyHomePage into stateful widget
-// if we would convert then after changing state MaterialApp, Scaffold will create again
-
-// To convert string into double
-// double.parse(strNum)
+// Making list scrollview
+// we have SingleChildScrollView() to make list scrollable
+// * Element should have fixed height which is wrapped by SingleChildScrollView
 
 void main() => runApp(MyApp());
 
@@ -28,18 +24,20 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Flutter App'),
       ),
-      body: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            child: Card(
-              child: Text('Chart'),
-              elevation: 5,
-              color: Colors.green,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              child: Card(
+                child: Text('Chart'),
+                elevation: 5,
+                color: Colors.green,
+              ),
             ),
-          ),
-          UserTransactions(),
-        ],
+            UserTransactions(),
+          ],
+        ),
       ),
     );
   }
