@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
 import 'transaction.dart';
 
-// Container vs Row/Column
-
-// Container
-// 1. Takes exactly one child widget.
-// 2. Rich alignment & styling options.
-// 3. Flexible width(eg child width, available width..)
-// 4. PERFECT FOR CUSTOM STYLING & ALIGNMENT.
-
-// Row/Column
-// 1. Takes multiple child widgets.
-// 2. Alignment but no styling options.
-// 3. Always takes full available height(column)/ width(row).
-// 4. MUST USE IF WIDGETS SIT NEXT TO / ABOVE EACH OTHER.
+// String Interpolation
+// using string concat = good morning + user.name
+// 'good morning ${user.name}'
+// If we want to show $ sign in string then since dollar sign is reserved keyword in dart
+// 'Total Bill = \$${amount}' => Total Bill = $100
 
 void main() => runApp(MyApp());
 
@@ -78,7 +70,7 @@ class MyHomePage extends StatelessWidget {
                           horizontal: 20,
                         ),
                         child: Text(
-                          tx.amount.toString(),
+                          '\$${tx.amount}',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
