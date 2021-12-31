@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'widgets/user_transactions.dart';
 
-// Making list scrollview
-// we have SingleChildScrollView() to make list scrollable
-// * Element should have fixed height which is wrapped by SingleChildScrollView
+// ListView
+// ListView is like "scrollable" column or Column with SingleChildScrollView
+// There are two ways to define ListView
+// 1) ListView(children: [...])
+// 2) ListView.builder(...)
+
+// with ListView(children: [...]), all widgets that are part of ListView
+// are rendered even if they are offscreen
+// ListView.builder only renders the widget that are visible
 
 void main() => runApp(MyApp());
 
