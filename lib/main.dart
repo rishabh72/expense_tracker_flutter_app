@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'transaction.dart';
+import 'package:intl/intl.dart';
 
-// String Interpolation
-// using string concat = good morning + user.name
-// 'good morning ${user.name}'
-// If we want to show $ sign in string then since dollar sign is reserved keyword in dart
-// 'Total Bill = \$${amount}' => Total Bill = $100
+// For date formatting we will install external package DateFormat and use this package.
+// https://pub.dev/packages/intl
+// Text Input
+// for input flutter gives us TextField Widget
 
 void main() => runApp(MyApp());
 
@@ -58,6 +58,27 @@ class MyHomePage extends StatelessWidget {
               color: Colors.green,
             ),
           ),
+          Card(
+            child: Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Title'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(labelText: 'Amount'),
+                  ),
+                  FlatButton(
+                    textColor: Colors.purple,
+                    onPressed: () => {},
+                    child: Text('Add Transaction'),
+                  )
+                ],
+              ),
+            ),
+          ),
           Column(
             children: transactions.map(
               (tx) {
@@ -96,7 +117,7 @@ class MyHomePage extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            tx.date.toString(),
+                            DateFormat.yMMMd().format(tx.date),
                             style: TextStyle(
                               color: Colors.grey,
                             ),
