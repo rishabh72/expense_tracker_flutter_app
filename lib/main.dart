@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'transaction.dart';
 import 'package:intl/intl.dart';
 
-// For date formatting we will install external package DateFormat and use this package.
-// https://pub.dev/packages/intl
-// Text Input
-// for input flutter gives us TextField Widget
-
+// Getting user input
+// 1. using TextEditingController()
+// 2. store value from onChanged to variable
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -41,6 +39,12 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
+  // String titleInput;
+  // String amountInput;
+
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     print(transactions[0].date);
@@ -66,13 +70,24 @@ class MyHomePage extends StatelessWidget {
                 children: [
                   TextField(
                     decoration: InputDecoration(labelText: 'Title'),
+                    // onChanged: (value) {
+                    //   titleInput = value;
+                    // },
+                    controller: titleController,
                   ),
                   TextField(
                     decoration: InputDecoration(labelText: 'Amount'),
+                    controller: amountController,
+                    // onChanged: (val) => amountInput = val,
                   ),
                   FlatButton(
                     textColor: Colors.purple,
-                    onPressed: () => {},
+                    onPressed: () {
+                      // print(titleInput);
+                      // print(amountInput);
+                      print(titleController.text);
+                      print(amountController.text);
+                    },
                     child: Text('Add Transaction'),
                   )
                 ],
