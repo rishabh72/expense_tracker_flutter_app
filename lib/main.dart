@@ -1,6 +1,20 @@
 import 'package:flutter/material.dart';
 import 'transaction.dart';
 
+// Container vs Row/Column
+
+// Container
+// 1. Takes exactly one child widget.
+// 2. Rich alignment & styling options.
+// 3. Flexible width(eg child width, available width..)
+// 4. PERFECT FOR CUSTOM STYLING & ALIGNMENT.
+
+// Row/Column
+// 1. Takes multiple child widgets.
+// 2. Alignment but no styling options.
+// 3. Always takes full available height(column)/ width(row).
+// 4. MUST USE IF WIDGETS SIT NEXT TO / ABOVE EACH OTHER.
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -58,8 +72,6 @@ class MyHomePage extends StatelessWidget {
                 return Card(
                   child: Row(
                     children: [
-                      // Container Styling
-                      // Container has decoration property. With that we can add border.
                       Container(
                         margin: EdgeInsets.symmetric(
                           vertical: 10,
@@ -81,7 +93,6 @@ class MyHomePage extends StatelessWidget {
                         ),
                         padding: EdgeInsets.all(10),
                       ),
-
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
