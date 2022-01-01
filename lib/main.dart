@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'widgets/user_transactions.dart';
 
-// To display only 2 digits after decimal, we can use toStringAsFixed() method
-// We also want that if user pressed done button after entering amount,
-// then newTransaction Fn should also trigger for that we can use onSubmitted property in TextField
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -23,6 +19,14 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Flutter App'),
+        actions: [
+          IconButton(
+            onPressed: () => {},
+            icon: Icon(
+              Icons.add,
+            ),
+          )
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -39,6 +43,10 @@ class MyHomePage extends StatelessWidget {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
