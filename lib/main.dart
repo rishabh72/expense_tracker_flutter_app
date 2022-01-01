@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'widgets/user_transactions.dart';
 
-// ListView
-// ListView is like "scrollable" column or Column with SingleChildScrollView
-// There are two ways to define ListView
-// 1) ListView(children: [...])
-// 2) ListView.builder(...)
-
-// with ListView(children: [...]), all widgets that are part of ListView
-// are rendered even if they are offscreen
-// ListView.builder only renders the widget that are visible
+// To display only 2 digits after decimal, we can use toStringAsFixed() method
+// We also want that if user pressed done button after entering amount,
+// then newTransaction Fn should also trigger for that we can use onSubmitted property in TextField
 
 void main() => runApp(MyApp());
 
