@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_complete_guide/widgets/transaction_list.dart';
+import 'widgets/chart.dart';
+import 'widgets/transaction_list.dart';
 import 'widgets/new_transaction.dart';
 import 'models/transaction.dart';
+
+// for loops
+// for (var i = 0; i < list.length; i++) {
+//    print(list[i]); // access list items with [i] => i is dynamic!
+// }
+
+// for (var tx in list) {
+//    print(tx); // tx is the item already! Changes with every iteration of course
+// }
+
+// where method
+// List.generate(length , (index){ })
 
 void main() => runApp(MyApp());
 
@@ -55,7 +68,24 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [];
+  final List<Transaction> _userTransactions = [
+    Transaction(
+      id: '1',
+      title: 'bread',
+      amount: 12.3,
+      date: DateTime.now(),
+    )
+  ];
+
+  List<Transaction> get _recentTransactions {
+    return _userTransactions.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
 
   void _addNewTransaction(String txTitle, double txAmount) {
     final newTx = Transaction(
@@ -98,14 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              width: double.infinity,
-              child: Card(
-                child: Text('Chart'),
-                elevation: 5,
-                color: Colors.green,
-              ),
-            ),
+            Chart(_recentTransactions),
             TransactionList(_userTransactions),
           ],
         ),
