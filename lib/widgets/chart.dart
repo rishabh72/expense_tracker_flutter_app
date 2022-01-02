@@ -47,17 +47,12 @@ class Chart extends StatelessWidget {
             (e) {
               return Flexible(
                 fit: FlexFit.tight,
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 1),
-                  ),
-                  child: ChartBar(
-                    e['day'],
-                    e['amount'],
-                    totalSpending == 0.0
-                        ? 0.0
-                        : (e['amount'] as double) / totalSpending,
-                  ),
+                child: ChartBar(
+                  e['day'],
+                  e['amount'],
+                  totalSpending == 0.0
+                      ? 0.0
+                      : (e['amount'] as double) / totalSpending,
                 ),
               );
             },

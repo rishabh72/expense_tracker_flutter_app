@@ -32,44 +32,25 @@ class TransactionList extends StatelessWidget {
           : ListView.builder(
               itemBuilder: (ctx, index) {
                 return Card(
-                  child: Row(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 20,
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      radius: 30,
+                      child: Padding(
+                        padding: EdgeInsets.all(6),
+                        child: FittedBox(
+                          child: Text(
+                              '\$${list[index].amount.toStringAsFixed(2)}'),
                         ),
-                        child: Text(
-                          '\$${list[index].amount.toStringAsFixed(2)}',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                        ),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Theme.of(context).primaryColor,
-                            width: 2,
-                          ),
-                        ),
-                        padding: EdgeInsets.all(10),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            list[index].title,
-                            style: Theme.of(context).textTheme.headline6,
-                          ),
-                          Text(
-                            DateFormat.yMMMd().format(list[index].date),
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
+                    ),
+                    title: Text(
+                      list[index].title,
+                      style: Theme.of(context).textTheme.headline6,
+                    ),
+                    subtitle: Text(
+                      DateFormat.yMMMd().format(list[index].date),
+                    ),
                   ),
                 );
               },
@@ -78,3 +59,45 @@ class TransactionList extends StatelessWidget {
     );
   }
 }
+
+// return Card(
+//                   child: Row(
+//                     children: [
+//                       Container(
+//                         margin: EdgeInsets.symmetric(
+//                           vertical: 10,
+//                           horizontal: 20,
+//                         ),
+//                         child: Text(
+//                           '\$${list[index].amount.toStringAsFixed(2)}',
+//                           style: TextStyle(
+//                             fontSize: 18,
+//                             color: Theme.of(context).primaryColor,
+//                           ),
+//                         ),
+//                         decoration: BoxDecoration(
+//                           border: Border.all(
+//                             color: Theme.of(context).primaryColor,
+//                             width: 2,
+//                           ),
+//                         ),
+//                         padding: EdgeInsets.all(10),
+//                       ),
+//                       Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                           Text(
+//                             list[index].title,
+//                             style: Theme.of(context).textTheme.headline6,
+//                           ),
+//                           Text(
+//                             DateFormat.yMMMd().format(list[index].date),
+//                             style: TextStyle(
+//                               color: Colors.grey,
+//                             ),
+//                           ),
+//                         ],
+//                       )
+//                     ],
+//                   ),
+//                 );
