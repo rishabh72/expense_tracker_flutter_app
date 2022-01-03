@@ -4,18 +4,6 @@ import 'widgets/transaction_list.dart';
 import 'widgets/new_transaction.dart';
 import 'models/transaction.dart';
 
-// for loops
-// for (var i = 0; i < list.length; i++) {
-//    print(list[i]); // access list items with [i] => i is dynamic!
-// }
-
-// for (var tx in list) {
-//    print(tx); // tx is the item already! Changes with every iteration of course
-// }
-
-// where method
-// List.generate(length , (index){ })
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -69,7 +57,34 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [];
+  final List<Transaction> _userTransactions = [
+    Transaction(
+      id: '1',
+      title: "test",
+      amount: 123,
+      date: DateTime.now(),
+    ),
+    Transaction(
+        id: '1',
+        title: "test",
+        amount: 120,
+        date: DateTime.now().subtract(Duration(days: 1))),
+    Transaction(
+        id: '1',
+        title: "test",
+        amount: 223,
+        date: DateTime.now().subtract(Duration(days: 2))),
+    Transaction(
+        id: '1',
+        title: "test",
+        amount: 22,
+        date: DateTime.now().subtract(Duration(days: 3))),
+    Transaction(
+        id: '1',
+        title: "test",
+        amount: 102,
+        date: DateTime.now().subtract(Duration(days: 5))),
+  ];
 
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((tx) {
@@ -112,25 +127,37 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Personal Expenses',
-        ),
-        actions: [
-          IconButton(
-            onPressed: () => _startAddNewTx(context),
-            icon: Icon(
-              Icons.add,
-            ),
-          )
-        ],
+    final appBar = AppBar(
+      title: Text(
+        'Personal Expenses',
       ),
+      actions: [
+        IconButton(
+          onPressed: () => _startAddNewTx(context),
+          icon: Icon(
+            Icons.add,
+          ),
+        )
+      ],
+    );
+    return Scaffold(
+      appBar: appBar,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Chart(_recentTransactions),
-            TransactionList(_userTransactions, _deleteTx),
+            Container(
+              child: Chart(_recentTransactions),
+              height: (MediaQuery.of(context).size.height -
+                      appBar.preferredSize.height -
+                      MediaQuery.of(context).padding.top) *
+                  .4,
+            ),
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appBar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    0.6,
+                child: TransactionList(_userTransactions, _deleteTx)),
           ],
         ),
       ),
