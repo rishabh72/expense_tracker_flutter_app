@@ -75,22 +75,22 @@ class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
       date: DateTime.now(),
     ),
     Transaction(
-        id: '1',
+        id: '2',
         title: "test",
         amount: 120,
         date: DateTime.now().subtract(Duration(days: 1))),
     Transaction(
-        id: '1',
+        id: '3',
         title: "test",
         amount: 223,
         date: DateTime.now().subtract(Duration(days: 2))),
     Transaction(
-        id: '1',
+        id: '4',
         title: "test",
         amount: 22,
         date: DateTime.now().subtract(Duration(days: 3))),
     Transaction(
-        id: '1',
+        id: '5',
         title: "test",
         amount: 102,
         date: DateTime.now().subtract(Duration(days: 5))),
